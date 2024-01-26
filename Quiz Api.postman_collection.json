@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "ed94980b-dd2c-4d75-8425-838922b4e050",
+		"name": "Quiz API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /quiz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/quiz",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Downtown Quiz\",\r\n    \"questions\": [\r\n        {\r\n            \"text\": \"Who is Alex's sister?\",\r\n            \"answers\": [\r\n                {\r\n                    \"text\": \"Mecca\",\r\n                    \"correct\": \"false\"\r\n                },\r\n                {\r\n                    \"text\": \"Chaka\",\r\n                    \"correct\": \"true\"\r\n                },\r\n                {\r\n                    \"text\": \"Jen\",\r\n                    \"correct\": \"false\"\r\n                },\r\n                {\r\n                    \"text\": \"Serena\",\r\n                    \"correct\": \"false\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"text\": \"What's the title of the first episode?\",\r\n            \"answers\": [\r\n                {\r\n                    \"text\": \"Train Pain\",\r\n                    \"correct\": \"false\"\r\n                },\r\n                {\r\n                    \"text\": \"Hot Spot\",\r\n                    \"correct\": \"false\"\r\n                },\r\n                {\r\n                    \"text\": \"Sin Bin\",\r\n                    \"correct\": \"true\"\r\n                },\r\n                {\r\n                    \"text\": \"The Con\",\r\n                    \"correct\": \"false\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/quiz",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /quiz/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/quiz/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /quiz/{id}/rename/{newName}",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/quiz/1/rename/Quiz Number One",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz",
+						"1",
+						"rename",
+						"Quiz Number One"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /quiz/{id}/random",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/quiz/43/random",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz",
+						"43",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /quiz/{id}/add",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"What's Matt's graffiti tag?\",\r\n    \"answers\": \r\n    [\r\n        {\r\n            \"text\": \"Minus\",\r\n            \"correct\": \"true\"\r\n        },\r\n        {\r\n            \"text\": \"Captain\",\r\n            \"correct\": \"false\"\r\n        },\r\n        {\r\n            \"text\": \"G.O.A.T.\",\r\n            \"correct\": \"false\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/quiz/43/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz",
+						"43",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /quiz/{id}/delete/{questionId}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/quiz/1/delete/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quiz",
+						"1",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
