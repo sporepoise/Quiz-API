@@ -2,7 +2,10 @@ package com.cooksys.quiz_api.repositories;
 
 import com.cooksys.quiz_api.entities.Question;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 // You may think you don't need this Repository, but remember each Repository interface
@@ -13,5 +16,12 @@ import org.springframework.stereotype.Repository;
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
   // TODO: Do you need any derived queries? If so add them here.
+
+	/*
+	@Query("SELECT q.id FROM public.question q")
+	List<Long> findAllIds();
+	*/
+	@Query("SELECT q.id FROM Question as q WHERE q.quiz.id = :quizId")
+	List<Long> findQuestionId(Long quizId);
 
 }

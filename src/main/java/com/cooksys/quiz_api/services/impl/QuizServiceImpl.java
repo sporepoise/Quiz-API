@@ -1,6 +1,7 @@
 package com.cooksys.quiz_api.services.impl;
 
 import java.util.List;
+import java.util.Random;
 
 import com.cooksys.quiz_api.dtos.QuestionRequestDto;
 import com.cooksys.quiz_api.dtos.QuestionResponseDto;
@@ -99,19 +100,18 @@ public class QuizServiceImpl implements QuizService {
 //Random Question
 	@Override
 	public QuestionResponseDto getRandomQuestion(Long id) {
-		// get the quiz based on the id
-		Quiz quiz = getQuizById(id);
-		List<Question> questions = quiz.getQuestions();
 
-		// generate random number
-		double min = 1.0;
-		double max = (double) quiz.getQuestions().size();
-		double randomDouble = min + (Math.random() * (max - min));
+		// get the ids of all the questions for the given quiz id using a query
+		List<Long> ids = questionRepository.findQuestionId(id);
 
-		// wrap randomDouble
-		int randomInt = (int) randomDouble;
+		Random random = new Random(); // random number generator
 
-		Question randomQuestion = questions.get(randomInt);
+		// will generate a random index and then use that index to get an id from ids
+		Long randomId = ids.get(random.nextInt(ids.size()));
+		System.out.println("randomId" + randomId);
+
+		// Get the random question from the repository
+		Question randomQuestion = questionRepository.getById(randomId);
 
 		return questionMapper.entityToDto(randomQuestion);
 	}
