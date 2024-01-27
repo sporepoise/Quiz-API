@@ -21,6 +21,7 @@ public class Quiz {
 
   private String name;
 
+  //private boolean deleted;
   @OneToMany(mappedBy = "quiz")
   private List<Question> questions;
 

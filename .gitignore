@@ -90,3 +90,4 @@ local.properties
 .scala_dependencies
 .worksheet
 
+/.apt_generated_tests/
