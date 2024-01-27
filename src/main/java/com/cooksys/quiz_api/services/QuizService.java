@@ -14,7 +14,7 @@ public interface QuizService {
 QuizResponseDto createQuiz(QuizRequestDto quizRequestDto);
 QuizResponseDto deleteQuiz(Long id);
 
-QuizResponseDto updateQuiz(Long id, QuizRequestDto quizRequestDto);
+QuizResponseDto updateQuiz(Long id, String name); 
 
 QuestionResponseDto getRandomQuestion(Long id);
 

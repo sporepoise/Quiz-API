@@ -87,10 +87,9 @@ public class QuizServiceImpl implements QuizService {
 
 //Update Quiz
 	@Override
-	public QuizResponseDto updateQuiz(Long id, QuizRequestDto quizRequestDto) {
+	public QuizResponseDto updateQuiz(Long id, String newName) {
 		// Get the quiz to update
 		Quiz quizToUpdate = getQuizById(id);
-		String newName = quizRequestDto.getName();
 		quizToUpdate.setName(newName);
 		quizRepository.saveAndFlush(quizToUpdate);
 

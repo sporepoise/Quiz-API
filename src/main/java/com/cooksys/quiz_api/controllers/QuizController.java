@@ -43,9 +43,9 @@ public class QuizController {
   }
   
   //PATCH - update the name of a specified quiz
-  @PatchMapping("/{id}/rename")
-  public QuizResponseDto updateQuiz(@PathVariable Long id, @RequestBody QuizRequestDto quizRequestDto) {
-	  return quizService.updateQuiz(id, quizRequestDto);
+  @PatchMapping("/{id}/rename/{newName}")
+  public QuizResponseDto updateQuiz(@PathVariable Long id, @PathVariable String newName) {
+	  return quizService.updateQuiz(id, newName);
   }
   
   //GET - get a random question from the specified quiz
